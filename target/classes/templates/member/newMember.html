@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" th:href="@{css/add_form.css}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SmartTrack</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{../css/styles.css}" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link rel="icon" th:href="@{../images/appicon.jpg}" type="image/x-icon">
+</head>
+
+<body>
+    <nav th:replace="layouts :: nav-bar-top"></nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div th:replace="layouts :: nav-items"></div>
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container">
+                    <form id="contact" action="/createMember" th:object="${memberObj}" method="post">
+                        <h3>Contest Participation</h3>
+                        <h4>Please add the Details</h4>
+                        <fieldset>
+                            <input placeholder="Your Name" type="text" tabindex="1" required autofocus th:field="${memberObj.name}">
+                        </fieldset>
+                        <fieldset>
+                            <input placeholder="No of Household people" type="text" tabindex="2" required th:field="${memberObj.noOfPeople}">
+                        </fieldset>
+                        <fieldset>
+                            <input placeholder="Your Electricity Consumer ID" type="text" tabindex="3" required th:field="${memberObj.electricityConsumerId}">
+                        </fieldset>
+                        <fieldset>
+                            <!-- <div class="radio-buttons">
+                                <label>Are you willing to Participate in the Contest:</label>
+                                <input type="radio" name="Participate" value="Yes" tabindex="4"> Yes
+                                <input type="radio" name="Participate" value="No" tabindex="5"> No
+                            </div> -->
+                        </fieldset>
+                        <fieldset>
+                            <button name="submit" type="submit" id="contact-submit"
+                                data-submit="...Sending">Submit</button>
+                        </fieldset>
+                    </form>
+                              
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layouts :: header"></head>
+    <link rel="stylesheet" th:href="@{css/add_form.css}">
+    <body>
+        <nav th:replace="layouts :: nav-bar-top"></nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div th:replace="layouts :: nav-items"></div>
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container">  
+                        <form action="createItem" method="post" th:object="${itemObj}" id="contact" >
+                          <h3>Add Material</h3>
+                          <h4>Please add the Details of the Material to be added to the society in</h4>
+                          <fieldset>
+                            <input placeholder="Item name" type="text" tabindex="1" required autofocus th:field="${itemObj.item_name}">
+                          </fieldset>
+                          <fieldset>
+                            <input placeholder="Item description" type="text" tabindex="2" required th:field="${itemObj.description}">
+                          </fieldset>
+                          <fieldset>
+                            <input placeholder="Maintenance period cycle ( in months)" type="text" tabindex="3" required th:field="${itemObj.maintenance_tenure}">
+                          </fieldset>
+                          <fieldset>
+                            <input placeholder="Maintenance urgency" type="text" tabindex="4" required th:field="${itemObj.maintenance_urgency}">
+                          </fieldset>
+                          <fieldset>
+                            <input placeholder="Item replace period" type="text" tabindex="4" required th:field="${itemObj.replace_time}">
+                          </fieldset>
+                          <fieldset>
+                            <textarea placeholder="Owner name" tabindex="5" required th:field="${itemObj.owner_name}"></textarea>
+                          </fieldset>
+                          <fieldset>
+                            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                          </fieldset>
+                        </form>
+                      </div>
+                </main>
+    </body>
+</html>
